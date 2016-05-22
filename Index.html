@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <style>
+        .card-container
+        {
+            text-align: center;
+            margin-bottom: 2.5em;
+            margin-top:2 em;
+        }
+        #canvas
+        {
+            border: 1px solid #FFC125;
+            background-color: #FFEBCD;
+            -moz-box-shadow: 3px 3px 8px #222;
+            -webkit-box-shadow: 3px 3px 8px #222;
+            box-shadow: 3px 3px 8px #222;
+        }
+        .title
+        {
+            text-align: center;
+            font-family: Segoe UI Light, Arial, Helvetica;
+            font-size: 2.2em;
+            margin: 1em;
+        }
+        .info
+        {
+            text-align: center;
+            font-family: Segoe UI Light, Arial, Helvetica;
+            font-size: 1.2em;
+            margin: 0.25em;
+        }
+        a, a:visited, a:active, a:hover
+        {
+            color: #fff;
+            text-decoration: none;
+        }
+        a:hover
+        {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="Contacts">
+
+        <div id="$FirstName"> </div>
+        <div id="$Lastname"> </div>
+        <div id="$City"> </div>
+        <div id="$Adress"> </div>
+        <div id="$Email"> </div>
+        <div id="$Phone"> </div>
+
+</div>
+</body>
+
+<script>
+    (function () {
+    var $FirstName = 'name';
+    var $Lastname = 'lname';
+    var $City = 'city';
+    var $Adress ='adress';
+    var $Email ='mail';
+    var $Phone ='phone';
+    var $Contact = {FirstName: $FirstName, Lastname: $Lastname, City: $City, Address: $Adress, Email: $Email, Phone: $Phone };
+
+    document.getElementById('$FirstName').innerHTML = $Contact.FirstName;
+    document.getElementById('$Lastname').innerHTML = $Contact.Lastname;
+    document.getElementById('$City').innerHTML = $Contact.City;
+    document.getElementById('$Adress').innerHTML = $Contact.Address;
+    document.getElementById('$Email').innerHTML = $Contact.Email;
+    document.getElementById('$Phone').innerHTML = $Contact.Phone;
+
+    })();
+
+</script>
+</body>
+</html>
