@@ -6,22 +6,12 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="results" id="results"></div>
 
-<div class="Contacts" id="cont">
-        <span id=$FirstName> </span> <br>
-        <span id="$Lastname"> </span> <br>
-        <span id="$City"> </span> <br>
-        <span id="$Adress"> </span> <br>
-        <span id="$Email"> </span> <br>
-        <span id="$Phone"> </span> <br>
-
-</div>
-
-
-<div id="results"></div>
 </body>
 
 <script >
+
 
     var results = document.getElementById('results');
     var r = new XMLHttpRequest();
@@ -45,7 +35,9 @@
             results.innerHTML += '<li>Email: '+data[i].$Email+'</li>'
             results.innerHTML += '<li>Phone: '+data[i].$Phone+'</li>'
 
+
         }
+        console.log(typeof data);
     };
     r.send();
 
