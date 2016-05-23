@@ -3,39 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-<div class="Contacts">
-
-        <div id="$FirstName"> </div>
-        <div id="$Lastname"> </div>
-        <div id="$City"> </div>
-        <div id="$Adress"> </div>
-        <div id="$Email"> </div>
-        <div id="$Phone"> </div>
+<div class="Contacts" id="cont">
+        <span id=$FirstName> </span> <br>
+        <span id="$Lastname"> </span> <br>
+        <span id="$City"> </span> <br>
+        <span id="$Adress"> </span> <br>
+        <span id="$Email"> </span> <br>
+        <span id="$Phone"> </span> <br>
 
 </div>
+
+
+<div id="results"></div>
 </body>
 
-<script>
-    (function () {
-    var $FirstName = 'name';
-    var $Lastname = 'lname';
-    var $City = 'city';
-    var $Adress ='adress';
-    var $Email ='mail';
-    var $Phone ='phone';
-    var $Contact = {FirstName: $FirstName, Lastname: $Lastname, City: $City, Address: $Adress, Email: $Email, Phone: $Phone };
+<script >
 
-    document.getElementById('$FirstName').innerHTML = $Contact.FirstName;
-    document.getElementById('$Lastname').innerHTML = $Contact.Lastname;
-    document.getElementById('$City').innerHTML = $Contact.City;
-    document.getElementById('$Adress').innerHTML = $Contact.Address;
-    document.getElementById('$Email').innerHTML = $Contact.Email;
-    document.getElementById('$Phone').innerHTML = $Contact.Phone;
+    var results = document.getElementById('results');
+    var r = new XMLHttpRequest();
+    r.open("GET", "http://www.filltext.com/?rows=20&pretty=true&$FirstName={firstName}&$LastName={lastName}&$City={city}&$Address={streetAddress}&$Email={email}&$Phone={phone}", true);
+    r.onreadystatechange = function () {
+        if (r.readyState != 4 || r.status != 200) return;
+        var data = JSON.parse(r.responseText);
+       /* for(var i =0;i<data.length;i++){
+            document.getElementById('$FirstName').innerHTML = 'FirstName: ' + data[i].$FirstName;
+            document.getElementById('$Lastname').innerHTML = 'LastName: ' + data[i].$LastName;
+            document.getElementById('$City').innerHTML = 'City: ' + data[i].$City;
+            document.getElementById('$Adress').innerHTML = 'Adress: ' + data[i].$Address;
+            document.getElementById('$Email').innerHTML = 'Email: ' + data[i].$Email;
+            document.getElementById('$Phone').innerHTML = 'Phone: ' + data[i].$Phone;
+       }*/
+        for (i=0;i<data.length;i++){
+            results.innerHTML += '<li>FirstName:  '+data[i].$FirstName+'</li>'
+            results.innerHTML += '<li>LastName: '+data[i].$LastName+'</li>'
+            results.innerHTML += '<li>City: '+data[i].$City+'</li>'
+            results.innerHTML += '<li>Adress: '+data[i].$Address+'</li>'
+            results.innerHTML += '<li>Email: '+data[i].$Email+'</li>'
+            results.innerHTML += '<li>Phone: '+data[i].$Phone+'</li>'
 
-    })();
+        }
+    };
+    r.send();
+
 
 </script>
 </body>

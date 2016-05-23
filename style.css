@@ -1,6 +1,15 @@
-.contacts{
-    background-color: #222222;
+#results {
+    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTVPiFdaoT6fOqBUlkwnltvpUm6xSnGNZlR8RkLXulHYpH07l-D");
+    background-size: cover;
     font-family: Calibri;
+    color: whitesmoke;
+    border-color:  crimson;
+    border: ridge;
+    line-height: 25px;
 
+}
 
+div{
+    width: 250px;
+    height: 150px;
 }
