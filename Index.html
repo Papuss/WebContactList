@@ -7,14 +7,9 @@
 </head>
 <body>
 <div class="results" id="results">
-
 </div>
-
 </body>
-
-<script >
-
-
+<script>
     var results = document.getElementById('results');
     var r = new XMLHttpRequest();
     r.open("GET", "http://www.filltext.com/?rows=20&pretty=true&$FirstName={firstName}&$LastName={lastName}&$City={city}&$Address={streetAddress}&$Email={email}&$Phone={phone}", true);
@@ -22,19 +17,14 @@
         if (r.readyState != 4 || r.status != 200) return;
         var data = JSON.parse(r.responseText);
 
-        for (i=0;i<data.length;i++){
-
-            results.innerHTML += '<div class="results">FirstName:  '+data[i].$FirstName+ '<br>'+'Lastname: '+data[i].$LastName+' <br>'+'City: '+data[i].$City+' <br>'
-                    +'Adress: '+data[i].$Address+' <br>'+'Email: '+data[i].$Email+' <br>'+'Phone: '+data[i].$Phone+'<br>'
-            results.innerHTML += '</div>'
-
-
+        for (i = 0; i < data.length; i++) {
+            results.innerHTML += '<div class="results">FirstName:  ' + data[i].$FirstName + '<br>' + 'Lastname: ' +
+                    data[i].$LastName + ' <br>' + 'City: ' + data[i].$City + ' <br>'
+                    + 'Adress: ' + data[i].$Address + ' <br>' + 'Email: ' + data[i].$Email + ' <br>' + 'Phone: ' + data[i].$Phone +
+                    '<br>' + '</div>'
         }
-        console.log(typeof data);
     };
     r.send();
-
-
 </script>
 </body>
 </html>
